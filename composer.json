@@ -1,5 +1,5 @@
 {
-    "name": "don/yii2-log-target-file",
+    "name": "donsimon/yii2-log-target-file",
     "description": "Yii 2.0 log file overwrite fileTarget",
     "keywords": ["yii2", "extension", "fileTarget", "log"],
     "type": "yii2-extension",
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "don\\log\\": "src"
+            "donsimon\\log\\": "src"
         }
     }
 }
