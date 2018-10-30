@@ -1,0 +1,25 @@
+{
+    "name": "don/yii2-log-target-file",
+    "description": "Yii 2.0 log file overwrite fileTarget",
+    "keywords": ["yii2", "extension", "fileTarget", "log"],
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "",
+        "source": "https://github.com/chathurasudarsha/LogTargetFile",
+    },
+    "authors": [
+        {
+            "name": "Don Simon P C S Ariyathilaka",
+            "email": "chathurasudarsha@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "don\\log\\": "src"
+        }
+    }
+}
