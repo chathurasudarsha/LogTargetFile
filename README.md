@@ -1,4 +1,4 @@
-# LogTargetFile
+# Yii2 LogTargetFile
 
 Customize the log message
 
