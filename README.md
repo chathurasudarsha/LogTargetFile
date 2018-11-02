@@ -1,6 +1,7 @@
 # LogTargetFile
 
 Customize the log message
+
 Show and ordering message units
 
 
@@ -27,6 +28,7 @@ Add following code your configuration
 Then,
  
 Add following code configurations components
+```php
         'log' => [
         //          'traceLevel' => YII_DEBUG ? 3 : 0,
                     'targets' => [
@@ -41,17 +43,21 @@ Add following code configurations components
                             ]
                     ],
         ],
-
+```
 After `Yii::info($text, 'user');` your log will update.
 
 What you can do here,
 
 You can change log file name using logFile.
+
 You can add many categories.
+
 You can add many levels (refer Yii2 logging)
+
 You can print vars using logVars.
 
 `showLogMessageOrder` is a array with full log message. You can customize and change the order of message units. 
+
 `prefixWithSession` can use for show, hide seesionId from prefix. 
  
 
