@@ -47,6 +47,7 @@ Add following code configurations components
 After `Yii::info($text, 'user');` your log will update.
 
 What you can do here,
+--
 
 You can change log file name using `logFile`.
 
