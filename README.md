@@ -48,13 +48,13 @@ After `Yii::info($text, 'user');` your log will update.
 
 What you can do here,
 
-You can change log file name using logFile.
+You can change log file name using `logFile`.
 
-You can add many categories.
+You can add many `categories`.
 
-You can add many levels (refer Yii2 logging)
+You can add many `levels` (refer Yii2 logging)
 
-You can print vars using logVars.
+You can print vars using `logVars`.
 
 `showLogMessageOrder` is a array with full log message. You can customize and change the order of message units. 
 
