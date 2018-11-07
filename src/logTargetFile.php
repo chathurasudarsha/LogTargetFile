@@ -15,9 +15,9 @@ use yii\log\Logger;
 class LogTargetFile extends \yii\log\FileTarget{
 
     public $categories = [];
-    public $showLogMessageOrder =[];
+    public $logMessageContainer =['timestamp','prefix','level','category','message'];
     private $message;
-    public $prefixWithSession=false;
+    public $prefixContainer=['ip','userId','sessionId'];
 
     public function formatMessage($message){
         $this->message = $message;
@@ -40,7 +40,7 @@ class LogTargetFile extends \yii\log\FileTarget{
 
         $prefix = $this->getMessagePrefix($message);
         $messageAppend = '';
-        foreach($this->showLogMessageOrder as $showing){
+        foreach($this->logMessageContainer as $showing){
             if($showing=='timestamp'){
                $messageAppend .= " ".$this->getTime($timestamp);
             }
@@ -69,23 +69,30 @@ class LogTargetFile extends \yii\log\FileTarget{
         if (Yii::$app === null) {
             return '';
         }
-        $request = Yii::$app->getRequest();
-        $ip = $request instanceof Request ? $request->getUserIP() : '-';
-
-        /* @var $user \yii\web\User */
-        $user = Yii::$app->has('user', true) ? Yii::$app->get('user') : null;
-        if ($user && ($identity = $user->getIdentity(false))) {
-            $userID = $identity->getId();
-        } else {
-            $userID = '';
+        $prefixAppend = '';
+        foreach($this->prefixContainer as $prefixUnit){
+            if($prefixUnit=='ip'){
+                $request = Yii::$app->getRequest();
+                $ip = $request instanceof Request ? $request->getUserIP() : '-';
+                $prefixAppend .= "[$ip]";
+            }
+            if($prefixUnit=='userId'){
+                /* @var $user \yii\web\User */
+                $user = Yii::$app->has('user', true) ? Yii::$app->get('user') : null;
+                if ($user && ($identity = $user->getIdentity(false))) {
+                    $userID = $identity->getId();
+                } else {
+                    $userID = '';
+                }
+               $prefixAppend .= "[$userID]"; 
+            }
+            if($prefixUnit=='sessionId'){
+                /* @var $session \yii\web\Session */
+                $session = Yii::$app->has('session', true) ? Yii::$app->get('session') : null;
+                $sessionID = $session && $session->getIsActive() ? $session->getId() : '-';
+                $prefixAppend .= "[$sessionID]"; 
+            }
         }
-        /* @var $session \yii\web\Session */
-        $session = Yii::$app->has('session', true) ? Yii::$app->get('session') : null;
-        $sessionID = $session && $session->getIsActive() ? $session->getId() : '-';
-        
-        if($this->prefixWithSession && $sessionID!='-'){
-            return "[$ip][$userID][$sessionID]";
-        }
-        return "[$ip][$userID]";
+        return $prefixAppend;
     }
 }

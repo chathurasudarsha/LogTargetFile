@@ -38,8 +38,8 @@ Add following lines to the components section in configuration file,
                                 'categories' => ['user','application'],
                                 'logVars' => ['_GET', '_POST', '_FILES', '_COOKIE', '_SESSION', '_SERVER']
                                 'logFile' => '@backend/runtime/logs/appAndUser.log',
-                                'showLogMessageOrder' =>['timestamp','prefix','level','category','message']
-                                'prefixWithSession'=>true
+                                'logMessageContainer' =>['timestamp','prefix','level','category','message']
+                                'prefixContainer'=>['ip','userId','sessionId']
                             ]
                     ],
         ],
@@ -57,14 +57,28 @@ What you can do here,
 
 You can change log file name using `logFile`.
 
+    -eg: @backend/runtime/logs/user-activities.log
+
 You can add many `categories`.
 
-You can add many `levels` (refer Yii2 logging)
+    -eg: ['yii\web\HttpException:*','yii\base\ErrorException:*','user','application']
+
+You can add many `levels` 
+
+    -eg: ['info','warning','error']
+
+[Refer for details](https://www.yiiframework.com/doc/guide/2.0/en/runtime-logging)
 
 You can print vars using `logVars`.
 
-`showLogMessageOrder` is a array with full log message. You can customize and change the order of message units. 
+``` New ```
 
-`prefixWithSession` can use for show, hide seesionId from prefix. 
+`logMessageContainer` is a array of log messages units ['timestamp','prefix','level','category','message']. 
+
+You can sort or remove log messages units using `logMessageContainer` 
+
+`prefixContainer` is a array of prefix units ['ip','userId','sessionId'].
+
+You can sort or remove log messages prefix using `prefixContainer`
  
 
