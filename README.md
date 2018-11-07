@@ -36,9 +36,9 @@ Add following lines to the components section in configuration file,
                                 'class' => 'donsimon\log\logTargetFile',  
                                 'levels' => ['info','warning','error'],
                                 'categories' => ['user','application'],
-                                'logVars' => ['_GET', '_POST', '_FILES', '_COOKIE', '_SESSION', '_SERVER']
+                                'logVars' => ['_GET', '_POST', '_FILES', '_COOKIE', '_SESSION', '_SERVER'],
                                 'logFile' => '@backend/runtime/logs/appAndUser.log',
-                                'logMessageContainer' =>['timestamp','prefix','level','category','message']
+                                'logMessageContainer' =>['timestamp','prefix','level','category','message'],
                                 'prefixContainer'=>['ip','userId','sessionId']
                             ]
                     ],
@@ -57,27 +57,28 @@ What you can do here,
 
 You can change log file name using `logFile`.
 
-    -eg: @backend/runtime/logs/user-activities.log
+    eg: @backend/runtime/logs/user-activities.log
 
 You can add many `categories`.
 
-    -eg: ['yii\web\HttpException:*','yii\base\ErrorException:*','user','application']
+    eg: ['yii\web\HttpException:*','yii\base\ErrorException:*','user','application']
 
 You can add many `levels` 
 
-    -eg: ['info','warning','error']
+    eg: ['info','warning','error']
 
-[Refer for details](https://www.yiiframework.com/doc/guide/2.0/en/runtime-logging)
+[Refer more](https://www.yiiframework.com/doc/guide/2.0/en/runtime-logging)
 
 You can print vars using `logVars`.
 
-``` New ```
+New
+--
 
-`logMessageContainer` is a array of log messages units ['timestamp','prefix','level','category','message']. 
+`logMessageContainer` is a array of log messages units `['timestamp','prefix','level','category','message']`. 
 
 You can sort and change log messages units using `logMessageContainer` 
 
-`prefixContainer` is a array of prefix units ['ip','userId','sessionId'].
+`prefixContainer` is a array of prefix units `['ip','userId','sessionId']`.
 
 You can sort and change log messages prefix using `prefixContainer`
  
