@@ -67,9 +67,11 @@ You can add many `levels`
 
     eg: ['info','warning','error']
 
+You can print vars using `logVars`.
+
 [Refer more](https://www.yiiframework.com/doc/guide/2.0/en/runtime-logging)
 
-You can print vars using `logVars`.
+
 
 New
 --
