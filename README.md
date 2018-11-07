@@ -21,13 +21,13 @@ to the require section of your composer.json file.
 Usage
 --
 
-Add following code your configuration
+Add following line to your  main configuration file (e.g. config/main.php),
 
         'bootstrap' => ['log'],
 
 Then,
  
-Add following code configurations components
+Add following lines to the components section in configuration file,
 ```php
         'log' => [
         //          'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -44,7 +44,13 @@ Add following code configurations components
                     ],
         ],
 ```
-After `Yii::info($text, 'user');` your log will update.
+To write on log file client should call something like this,
+
+ `Yii::info($message, $category);` 
+
+Here $message and $category are variables.
+
+your log will update.
 
 What you can do here,
 --
