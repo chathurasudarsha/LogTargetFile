@@ -14,6 +14,10 @@
             "email": "chathurasudarsha@gmail.com"
         }
     ],
+     "require": {
+        "php": ">=7.0.0",
+        "yiisoft/yii2": "*"
+    },
     "autoload": {
         "psr-4": {
             "donsimon\\log\\": "src"
