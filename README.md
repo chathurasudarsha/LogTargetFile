@@ -1,8 +1,8 @@
 # Yii2 LogTargetFile
 
-Customize the log message
+Customize the log messages
 
-Show and ordering message units
+Sort and change the log message's units
 
 
 Installation
@@ -75,10 +75,10 @@ You can print vars using `logVars`.
 
 `logMessageContainer` is a array of log messages units ['timestamp','prefix','level','category','message']. 
 
-You can sort or remove log messages units using `logMessageContainer` 
+You can sort and change log messages units using `logMessageContainer` 
 
 `prefixContainer` is a array of prefix units ['ip','userId','sessionId'].
 
-You can sort or remove log messages prefix using `prefixContainer`
+You can sort and change log messages prefix using `prefixContainer`
  
 
